@@ -15,24 +15,41 @@ class TennisGame1:
             self.player2_points += 1
 
     def score(self):
-        score_difference = self.player1_points - self.player2_points
+        if self._is_game_over():
+            result = "Win for " + self._get_player_in_lead()
 
-        if score_difference == 0:
+        elif self._is_tied():
             result = self._tied_game_score()
 
-        elif self.player1_points >= 4 or self.player2_points >= 4:
-            if score_difference == 1:
-                result = "Advantage " + self.player1_name
-            elif score_difference == -1:
-                result = "Advantage " + self.player2_name
-            elif score_difference >= 2:
-                result = "Win for " + self.player1_name
-            else:
-                result = "Win for " + self.player2_name
+        elif self._is_advantage():
+            result = "Advantage " + self._get_player_in_lead()
+
         else:
-            result = self._in_progress_game_score()
+            player1_score = self._get_points_category(self.player1_points)
+            player2_score = self._get_points_category(self.player2_points)
+            result = f"{player1_score}-{player2_score}"
 
         return result
+
+    def _get_player_in_lead(self):
+        if self.player1_points > self.player2_points:
+            leading_player = self.player1_name
+        else:
+            leading_player = self.player2_name
+
+        return leading_player
+
+    def _is_game_over(self):
+        return (
+            (self.player1_points >= 4 or self.player2_points >= 4) and
+            (abs(self.player1_points-self.player2_points) > 1)
+        )
+
+    def _is_tied(self):
+        return self.player1_points == self.player2_points
+
+    def _is_advantage(self):
+        return self.player1_points >= 4 or self.player2_points >= 4
 
     def _tied_game_score(self):
         if self.player1_points > 2:
@@ -41,11 +58,6 @@ class TennisGame1:
             player_points = self._get_points_category(self.player1_points)
             result = f"{player_points}-All"
         return result
-
-    def _in_progress_game_score(self):
-        player1_score = self._get_points_category(self.player1_points)
-        player2_score = self._get_points_category(self.player2_points)
-        return f"{player1_score}-{player2_score}"
 
     def _get_points_category(self, score):
         return {
