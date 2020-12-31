@@ -41,3 +41,5 @@ You should not need to change the tests, only run them often as you refactor.
     1. line 19 variable tempScore initialised but completely unused until the in progress game score branch (L37 onwards)  
 
 1. Ongoing game score creation is using unnecessary looping and unclear as to how it's working
+    1. Extract method to get player points category / string
+    1. Simplify loop to just pull the category for each player's current score and build a score string

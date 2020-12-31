@@ -33,19 +33,19 @@ class TennisGame1:
             else:
                 result = "Win for " + self.player2_name
         else:
-            for i in range(1, 3):
-                if i == 1:
-                    temp_score = self.player1_points
-                else:
-                    result += "-"
-                    temp_score = self.player2_points
-                result += {
-                    0: "Love",
-                    1: "Fifteen",
-                    2: "Thirty",
-                    3: "Forty",
-                }[temp_score]
+            player1_score = self._get_points_category(self.player1_points)
+            player2_score = self._get_points_category(self.player2_points)
+            result = f"{player1_score}-{player2_score}"
+
         return result
+
+    def _get_points_category(self, score):
+        return {
+            0: "Love",
+            1: "Fifteen",
+            2: "Thirty",
+            3: "Forty",
+        }[score]
 
 
 class TennisGame2:
