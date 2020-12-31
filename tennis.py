@@ -16,11 +16,8 @@ class TennisGame1:
 
     def score(self):
         if self.player1_points == self.player2_points:
-            result = {
-                0: "Love-All",
-                1: "Fifteen-All",
-                2: "Thirty-All",
-            }.get(self.player1_points, "Deuce")
+            result = self._tied_game_score()
+
         elif self.player1_points >= 4 or self.player2_points >= 4:
             minus_result = self.player1_points - self.player2_points
             if minus_result == 1:
@@ -32,11 +29,22 @@ class TennisGame1:
             else:
                 result = "Win for " + self.player2_name
         else:
-            player1_score = self._get_points_category(self.player1_points)
-            player2_score = self._get_points_category(self.player2_points)
-            result = f"{player1_score}-{player2_score}"
+            result = self._in_progress_game_score()
 
         return result
+
+    def _tied_game_score(self):
+        if self.player1_points > 2:
+            result = "Deuce"
+        else:
+            player_points = self._get_points_category(self.player1_points)
+            result = f"{player_points}-All"
+        return result
+
+    def _in_progress_game_score(self):
+        player1_score = self._get_points_category(self.player1_points)
+        player2_score = self._get_points_category(self.player2_points)
+        return f"{player1_score}-{player2_score}"
 
     def _get_points_category(self, score):
         return {
