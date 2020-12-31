@@ -19,12 +19,12 @@ class TennisGame1:
             result = self._tied_game_score()
 
         elif self.player1_points >= 4 or self.player2_points >= 4:
-            minus_result = self.player1_points - self.player2_points
-            if minus_result == 1:
+            score_difference = self.player1_points - self.player2_points
+            if score_difference == 1:
                 result = "Advantage " + self.player1_name
-            elif minus_result == -1:
+            elif score_difference == -1:
                 result = "Advantage " + self.player2_name
-            elif minus_result >= 2:
+            elif score_difference >= 2:
                 result = "Win for " + self.player1_name
             else:
                 result = "Win for " + self.player2_name
