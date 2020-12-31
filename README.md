@@ -37,5 +37,7 @@ You should not need to change the tests, only run them often as you refactor.
 1. Style clutter
     1. naming style is not pythonic - should use snake case instead of camel case
     1. if clauses have unnecessary parentheses
+1. Dead code
     1. line 19 variable tempScore initialised but completely unused until the in progress game score branch (L37 onwards)  
-    
+
+1. Ongoing game score creation is using unnecessary looping and unclear as to how it's working
