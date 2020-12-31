@@ -15,11 +15,12 @@ class TennisGame1:
             self.player2_points += 1
 
     def score(self):
-        if self.player1_points == self.player2_points:
+        score_difference = self.player1_points - self.player2_points
+
+        if score_difference == 0:
             result = self._tied_game_score()
 
         elif self.player1_points >= 4 or self.player2_points >= 4:
-            score_difference = self.player1_points - self.player2_points
             if score_difference == 1:
                 result = "Advantage " + self.player1_name
             elif score_difference == -1:
