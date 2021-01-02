@@ -59,6 +59,9 @@ You should not need to change the tests, only run them often as you refactor.
 1. Group together score calculation for in-progress game into a method `_in_progress_game_score` so that we have a method 
 that would only change if the incomplete scoring required changes.
 
+1. Remove magic numbers for point values - created constants for points values love, fifteen, thiry, forty. These were 
+tricky to name and I'm still unsure about them 1 == 15?!
+
 ### Reservations about the implementation
 
 * Concerns for calculating and representing the game score are mixed

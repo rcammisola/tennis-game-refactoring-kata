@@ -4,13 +4,18 @@ POINTS_NAME_1 = "Fifteen"
 POINTS_NAME_2 = "Thirty"
 POINTS_NAME_3 = "Forty"
 
+POINTS_VALUE_LOVE = 0
+POINTS_VALUE_FIFTEEN = 1
+POINTS_VALUE_THIRTY = 2
+POINTS_VALUE_FORTY = 3
+
 
 def _get_points_category(score):
     return {
-        0: POINTS_NAME_0,
-        1: POINTS_NAME_1,
-        2: POINTS_NAME_2,
-        3: POINTS_NAME_3,
+        POINTS_VALUE_LOVE: POINTS_NAME_0,
+        POINTS_VALUE_FIFTEEN: POINTS_NAME_1,
+        POINTS_VALUE_THIRTY: POINTS_NAME_2,
+        POINTS_VALUE_FORTY: POINTS_NAME_3,
     }[score]
 
 
