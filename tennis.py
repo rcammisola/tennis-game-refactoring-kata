@@ -127,14 +127,17 @@ class TennisGame2:
 
     def _points(self, player_points):
         if player_points == 0:
-            P2res = "Love"
+            point_title = "Love"
         elif player_points == 1:
-            P2res = "Fifteen"
+            point_title = "Fifteen"
         elif player_points == 2:
-            P2res = "Thirty"
+            point_title = "Thirty"
         elif player_points == 3:
-            P2res = "Forty"
-        return P2res
+            point_title = "Forty"
+        else:
+            raise ValueError(f"Unexpected points value: {player_points}")
+
+        return point_title
 
     def P1Score(self):
         self.p1points += 1
