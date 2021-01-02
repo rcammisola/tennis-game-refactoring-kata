@@ -83,7 +83,7 @@ tricky to name and I'm still unsure about them 1 == 15?!
 
 ### Code Smells?
 
-1. variable naming style
+1. variable and method naming style
 1. Long method
 1. Dead code (SetP1Score and SetP2Score)
 1. magic strings and numbers
@@ -91,3 +91,4 @@ tricky to name and I'm still unsure about them 1 == 15?!
 1. Mixing of concerns - setting player 1 result and player 2 result jumbled together
 1. Unclear what each separate if block is for
 1. Unnecessary check that the opposition has 0+ points in the game over conditionals
+    1. Removed
