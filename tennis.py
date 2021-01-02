@@ -157,11 +157,9 @@ class TennisGame2:
                 P1res = "Thirty"
             result = P1res + "-" + P2res
 
-        if (self.p1points > self.p2points and self.p2points >= 3):
-            result = "Advantage " + self.player1Name
-
-        if (self.p2points > self.p1points and self.p1points >= 3):
-            result = "Advantage " + self.player2Name
+        if (self.p1points >= 3 and self.p2points >= 3) and abs(self.p2points - self.p1points) == 1:
+            leading_player = self.player1Name if self.p1points > self.p2points else self.player2Name
+            result = "Advantage " + leading_player
 
         if (self.p1points > 3 or self.p2points > 3) and abs(self.p2points - self.p1points) >= 2:
             winning_player = self.player1Name if self.p1points > self.p2points else self.player2Name

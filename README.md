@@ -92,3 +92,5 @@ tricky to name and I'm still unsure about them 1 == 15?!
 1. Unclear what each separate if block is for
 1. Unnecessary check that the opposition has 0+ points in the game over conditionals
     1. Removed
+
+1. Removed duplication of result string for Win and Advantage branches
