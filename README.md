@@ -137,3 +137,17 @@ if (self.p2points > self.p1points and self.p2points < 4):
     hard code a player's points in specific scenarios
 
 1. Tied score branches rolled together
+
+1. De-duplicate leading player lookup
+
+
+### Thoughts
+
+* Game2 is a good example of where a component accumulates technical debt with new features/bug fixes over a long period of time.
+    * Multiple redundant clauses added in haste to meet a deadline without spending time refactoring
+* Felt like it was possible to get quite far before trying to do any semantic refactoring (naming constants and extracting methods)
+    * Think this is useful to consider where possible in order to avoid having the wrong abstraction - within reason
+    * Link to Sandi Metz talk?
+
+
+
