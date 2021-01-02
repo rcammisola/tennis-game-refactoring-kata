@@ -131,3 +131,9 @@ if (self.p2points > self.p1points and self.p2points < 4):
 
 1. Impose switch-line setup so that ongoing game section is encapsulated
 
+1. Simplify on-going game logic to player1-player2
+    1. Now that we have the clauses re-arranged most of this code just goes away
+    1. The points lookup helper is very useful here as well - there's no reason to 
+    hard code a player's points in specific scenarios
+
+
