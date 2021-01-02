@@ -30,13 +30,13 @@ class TennisGame1:
 
     def score(self):
         if self._is_game_over():
-            result = "Win for " + self._get_player_in_lead()
+            result = "Win for " + self._currently_leading_player()
 
         elif self._is_tied():
             result = self._tied_game_score()
 
         elif self._is_advantage():
-            result = "Advantage " + self._get_player_in_lead()
+            result = "Advantage " + self._currently_leading_player()
 
         else:
             player1_score = _get_points_category(self.player1_points)
@@ -45,7 +45,7 @@ class TennisGame1:
 
         return result
 
-    def _get_player_in_lead(self):
+    def _currently_leading_player(self):
         if self.player1_points > self.player2_points:
             leading_player = self.player1_name
         else:
