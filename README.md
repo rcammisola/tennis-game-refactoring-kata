@@ -62,6 +62,10 @@ that would only change if the incomplete scoring required changes.
 1. Remove magic numbers for point values - created constants for points values love, fifteen, thiry, forty. These were 
 tricky to name and I'm still unsure about them 1 == 15?!
 
+1. Modified check for game over - check if either player has MORE than Forty rather than the meaningless 4 or more
+
+1. Modified check for advantage, check that BOTH players have Forty or more points
+
 ### Reservations about the implementation
 
 * Concerns for calculating and representing the game score are mixed

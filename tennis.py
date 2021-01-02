@@ -65,18 +65,21 @@ class TennisGame1:
 
     def _is_game_over(self):
         return (
-            (self.player1_points >= 4 or self.player2_points >= 4) and
-            (abs(self.player1_points-self.player2_points) > 1)
+            (self.player1_points > POINTS_VALUE_FORTY or self.player2_points > POINTS_VALUE_FORTY) and
+            self._more_than_one_point_ahead()
         )
+
+    def _more_than_one_point_ahead(self):
+        return abs(self.player1_points - self.player2_points) > 1
 
     def _is_tied(self):
         return self.player1_points == self.player2_points
 
     def _is_advantage(self):
-        return self.player1_points >= 4 or self.player2_points >= 4
+        return self.player1_points >= POINTS_VALUE_FORTY and self.player2_points >= POINTS_VALUE_FORTY
 
     def _tied_game_score(self):
-        if self.player1_points > 2:
+        if self.player1_points >= POINTS_VALUE_FORTY:
             result = "Deuce"
         else:
             player_points = _get_points_category(self.player1_points)
