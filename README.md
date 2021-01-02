@@ -126,3 +126,8 @@ if (self.p2points > self.p1points and self.p2points < 4):
 
 * Refactoring was automated by Sourcery plugin
 * Switch-like form groups related if statements into if-elif blocks rather than consecutive if that may lead to overwriting
+
+1. Won game situation should act as a guard clause - if we're already done then just get out of the method
+
+1. Impose switch-line setup so that ongoing game section is encapsulated
+
