@@ -94,3 +94,35 @@ tricky to name and I'm still unsure about them 1 == 15?!
     1. Removed
 
 1. Removed duplication of result string for Win and Advantage branches
+
+1. Simplify conditional to switch-like form
+
+Before:
+```
+if (self.p2points > self.p1points and self.p2points < 4):
+    if (self.p2points == 2):
+        P2res = "Thirty"
+    if (self.p2points == 3):
+        P2res = "Forty"
+    if (self.p1points == 1):
+        P1res = "Fifteen"
+    if (self.p1points == 2):
+        P1res = "Thirty"
+```
+
+
+After:
+```
+if (self.p2points > self.p1points and self.p2points < 4):
+    if self.p2points == 2:
+        P2res = "Thirty"
+    elif self.p2points == 3:
+        P2res = "Forty"
+    if self.p1points == 1:
+        P1res = "Fifteen"
+    elif self.p1points == 2:
+        P1res = "Thirty"
+```
+
+* Refactoring was automated by Sourcery plugin
+* Switch-like form groups related if statements into if-elif blocks rather than consecutive if that may lead to overwriting
