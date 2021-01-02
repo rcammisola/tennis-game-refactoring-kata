@@ -101,7 +101,6 @@ class TennisGame2:
             self.P2Score()
 
     def score(self):
-        result = ""
         if (self.p1points > 3 or self.p2points > 3) and abs(self.p2points - self.p1points) >= 2:
             winning_player = self.player1Name if self.p1points > self.p2points else self.player2Name
             result = "Win for " + winning_player
