@@ -1,4 +1,18 @@
 # -*- coding: utf-8 -*-
+POINTS_NAME_0 = "Love"
+POINTS_NAME_1 = "Fifteen"
+POINTS_NAME_2 = "Thirty"
+POINTS_NAME_3 = "Forty"
+
+
+def _get_points_category(score):
+    return {
+        0: POINTS_NAME_0,
+        1: POINTS_NAME_1,
+        2: POINTS_NAME_2,
+        3: POINTS_NAME_3,
+    }[score]
+
 
 class TennisGame1:
 
@@ -25,8 +39,8 @@ class TennisGame1:
             result = "Advantage " + self._get_player_in_lead()
 
         else:
-            player1_score = self._get_points_category(self.player1_points)
-            player2_score = self._get_points_category(self.player2_points)
+            player1_score = _get_points_category(self.player1_points)
+            player2_score = _get_points_category(self.player2_points)
             result = f"{player1_score}-{player2_score}"
 
         return result
@@ -55,17 +69,9 @@ class TennisGame1:
         if self.player1_points > 2:
             result = "Deuce"
         else:
-            player_points = self._get_points_category(self.player1_points)
+            player_points = _get_points_category(self.player1_points)
             result = f"{player_points}-All"
         return result
-
-    def _get_points_category(self, score):
-        return {
-            0: "Love",
-            1: "Fifteen",
-            2: "Thirty",
-            3: "Forty",
-        }[score]
 
 
 class TennisGame2:
