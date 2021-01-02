@@ -32,7 +32,13 @@ class TennisGame1:
         if self._is_game_over():
             result = "Win for " + self._currently_leading_player()
 
-        elif self._is_tied():
+        else:
+            result = self._in_progress_game_score()
+
+        return result
+
+    def _in_progress_game_score(self):
+        if self._is_tied():
             result = self._tied_game_score()
 
         elif self._is_advantage():
@@ -42,7 +48,6 @@ class TennisGame1:
             player1_score = _get_points_category(self.player1_points)
             player2_score = _get_points_category(self.player2_points)
             result = f"{player1_score}-{player2_score}"
-
         return result
 
     def _currently_leading_player(self):

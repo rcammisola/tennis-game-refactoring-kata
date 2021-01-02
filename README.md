@@ -55,3 +55,20 @@ You should not need to change the tests, only run them often as you refactor.
         1. this made the score difference redundant
         1. reverted the tied situation check to points equality which is more intuitive check
         1. added a helper method to get the leading player and use that name to build the string rather than duplicating string building
+    
+1. Group together score calculation for in-progress game into a method `_in_progress_game_score` so that we have a method 
+that would only change if the incomplete scoring required changes.
+
+### Reservations about the implementation
+
+* Concerns for calculating and representing the game score are mixed
+    * If I wanted to display the score on a scoreboard and use the score for some commentary I would want to have different 
+    representations of the score shown
+    * e.g. "Ad" by the player in the lead compared to the "Advantage Player" provided
+* Would be interesting to extend the kata further to handle multiple cases at a Tennis tournamnet
+    * Scoreboard
+    * JudgeBot
+    * Commentator
+    * Would also want to roll game results up to Set and Match scores
+
+
