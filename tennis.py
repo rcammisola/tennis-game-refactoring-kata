@@ -108,14 +108,15 @@ class TennisGame2:
         elif (self.p1points >= 3 and self.p2points >= 3) and abs(self.p2points - self.p1points) == 1:
             leading_player = self.player1Name if self.p1points > self.p2points else self.player2Name
             result = "Advantage " + leading_player
+
         else:
 
-            if self.p1points == self.p2points and self.p1points < 3:
-                result = self._points(self.p1points)
-                result += "-All"
-
-            elif self.p1points == self.p2points and self.p1points > 2:
-                result = "Deuce"
+            if self.p1points == self.p2points:
+                if self.p1points < 3:
+                    result = self._points(self.p1points)
+                    result += "-All"
+                else:
+                    result = "Deuce"
 
             else:
                 P2res = self._points(self.p2points)

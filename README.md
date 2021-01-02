@@ -136,4 +136,4 @@ if (self.p2points > self.p1points and self.p2points < 4):
     1. The points lookup helper is very useful here as well - there's no reason to 
     hard code a player's points in specific scenarios
 
-
+1. Tied score branches rolled together
