@@ -110,34 +110,20 @@ class TennisGame2:
         else:
             if self.p1points == self.p2points:
                 if self.p1points < POINTS_VALUE_FORTY:
-                    result = self._points(self.p1points)
+                    result = _get_points_category(self.p1points)
                     result += "-All"
                 else:
                     result = "Deuce"
 
             else:
-                P2res = self._points(self.p2points)
-                P1res = self._points(self.p1points)
+                P2res = _get_points_category(self.p2points)
+                P1res = _get_points_category(self.p1points)
                 result = P1res + "-" + P2res
 
         return result
 
     def _currently_winning_player_name(self):
         return self.player1Name if self.p1points > self.p2points else self.player2Name
-
-    def _points(self, player_points):
-        if player_points == POINTS_VALUE_LOVE:
-            point_title = POINTS_NAME_LOVE
-        elif player_points == POINTS_VALUE_FIFTEEN:
-            point_title = POINTS_NAME_FIFTEEN
-        elif player_points == POINTS_VALUE_THIRTY:
-            point_title = POINTS_NAME_THIRTY
-        elif player_points == POINTS_VALUE_FORTY:
-            point_title = POINTS_NAME_FORTY
-        else:
-            raise ValueError(f"Unexpected points value: {player_points}")
-
-        return point_title
 
     def P1Score(self):
         self.p1points += 1

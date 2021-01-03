@@ -140,10 +140,11 @@ if (self.p2points > self.p1points and self.p2points < 4):
 
 1. De-duplicate leading player lookup
 
-#### TODO:
-
 1. use point constants
 1. use point category name function created for game 1?
+
+#### TODO:
+
 1. P1 Score and P2 Score methods are unnecessary?
 
 1. Style changes
