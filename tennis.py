@@ -96,9 +96,9 @@ class TennisGame2:
 
     def won_point(self, playerName):
         if playerName == self.player1Name:
-            self.P1Score()
+            self.p1points += 1
         else:
-            self.P2Score()
+            self.p2points += 1
 
     def score(self):
         if (self.p1points > POINTS_VALUE_FORTY or self.p2points > POINTS_VALUE_FORTY) and abs(self.p2points - self.p1points) >= 2:
@@ -124,12 +124,6 @@ class TennisGame2:
 
     def _currently_winning_player_name(self):
         return self.player1Name if self.p1points > self.p2points else self.player2Name
-
-    def P1Score(self):
-        self.p1points += 1
-
-    def P2Score(self):
-        self.p2points += 1
 
 
 class TennisGame3:
