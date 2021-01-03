@@ -101,16 +101,15 @@ class TennisGame2:
             self.P2Score()
 
     def score(self):
-        if (self.p1points > 3 or self.p2points > 3) and abs(self.p2points - self.p1points) >= 2:
+        if (self.p1points > POINTS_VALUE_FORTY or self.p2points > POINTS_VALUE_FORTY) and abs(self.p2points - self.p1points) >= 2:
             result = "Win for " + self._currently_winning_player_name()
 
-        elif (self.p1points >= 3 and self.p2points >= 3) and abs(self.p2points - self.p1points) == 1:
+        elif (self.p1points >= POINTS_VALUE_FORTY and self.p2points >= POINTS_VALUE_FORTY) and abs(self.p2points - self.p1points) == 1:
             result = "Advantage " + self._currently_winning_player_name()
 
         else:
-
             if self.p1points == self.p2points:
-                if self.p1points < 3:
+                if self.p1points < POINTS_VALUE_FORTY:
                     result = self._points(self.p1points)
                     result += "-All"
                 else:
@@ -127,13 +126,13 @@ class TennisGame2:
         return self.player1Name if self.p1points > self.p2points else self.player2Name
 
     def _points(self, player_points):
-        if player_points == 0:
+        if player_points == POINTS_VALUE_LOVE:
             point_title = "Love"
-        elif player_points == 1:
+        elif player_points == POINTS_VALUE_FIFTEEN:
             point_title = "Fifteen"
-        elif player_points == 2:
+        elif player_points == POINTS_VALUE_THIRTY:
             point_title = "Thirty"
-        elif player_points == 3:
+        elif player_points == POINTS_VALUE_FORTY:
             point_title = "Forty"
         else:
             raise ValueError(f"Unexpected points value: {player_points}")
