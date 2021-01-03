@@ -101,14 +101,14 @@ class TennisGame2:
             self.player2_points += 1
 
     def score(self):
-        if (self.player1_points > POINTS_VALUE_FORTY or self.player2_points > POINTS_VALUE_FORTY) and abs(self.player2_points - self.player1_points) >= 2:
+        if self._either_player_has_more_than(POINTS_VALUE_FORTY) and self._lead_at_least_two_points():
             result = "Win for " + self._currently_winning_player_name()
 
-        elif (self.player1_points >= POINTS_VALUE_FORTY and self.player2_points >= POINTS_VALUE_FORTY) and abs(self.player2_points - self.player1_points) == 1:
+        elif self._both_players_have_at_least(POINTS_VALUE_FORTY) and self._lead_by_one_point():
             result = "Advantage " + self._currently_winning_player_name()
 
         else:
-            if self.player1_points == self.player2_points:
+            if self._tied_game():
                 if self.player1_points < POINTS_VALUE_FORTY:
                     result = _get_points_category(self.player1_points)
                     result += "-All"
@@ -124,6 +124,21 @@ class TennisGame2:
 
     def _currently_winning_player_name(self):
         return self.player1_name if self.player1_points > self.player2_points else self.player2_name
+
+    def _either_player_has_more_than(self, points):
+        return self.player1_points > points or self.player2_points > points
+
+    def _lead_at_least_two_points(self):
+        return abs(self.player2_points - self.player1_points) >= 2
+
+    def _both_players_have_at_least(self, points):
+        return self.player1_points >= points and self.player2_points >= points
+
+    def _lead_by_one_point(self):
+        return abs(self.player2_points - self.player1_points) == 1
+
+    def _tied_game(self):
+        return self.player1_points == self.player2_points
 
 
 class TennisGame3:
