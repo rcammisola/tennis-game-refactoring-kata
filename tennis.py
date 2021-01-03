@@ -127,13 +127,13 @@ class TennisGame2:
 
     def _points(self, player_points):
         if player_points == POINTS_VALUE_LOVE:
-            point_title = "Love"
+            point_title = POINTS_NAME_LOVE
         elif player_points == POINTS_VALUE_FIFTEEN:
-            point_title = "Fifteen"
+            point_title = POINTS_NAME_FIFTEEN
         elif player_points == POINTS_VALUE_THIRTY:
-            point_title = "Thirty"
+            point_title = POINTS_NAME_THIRTY
         elif player_points == POINTS_VALUE_FORTY:
-            point_title = "Forty"
+            point_title = POINTS_NAME_FORTY
         else:
             raise ValueError(f"Unexpected points value: {player_points}")
 
