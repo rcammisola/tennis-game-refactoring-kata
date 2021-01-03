@@ -88,42 +88,42 @@ class TennisGame1:
 
 
 class TennisGame2:
-    def __init__(self, player1Name, player2Name):
-        self.player1Name = player1Name
-        self.player2Name = player2Name
-        self.p1points = 0
-        self.p2points = 0
+    def __init__(self, player1_name, player2_name):
+        self.player1_name = player1_name
+        self.player2_name = player2_name
+        self.player1_points = 0
+        self.player2_points = 0
 
-    def won_point(self, playerName):
-        if playerName == self.player1Name:
-            self.p1points += 1
+    def won_point(self, player_name):
+        if player_name == self.player1_name:
+            self.player1_points += 1
         else:
-            self.p2points += 1
+            self.player2_points += 1
 
     def score(self):
-        if (self.p1points > POINTS_VALUE_FORTY or self.p2points > POINTS_VALUE_FORTY) and abs(self.p2points - self.p1points) >= 2:
+        if (self.player1_points > POINTS_VALUE_FORTY or self.player2_points > POINTS_VALUE_FORTY) and abs(self.player2_points - self.player1_points) >= 2:
             result = "Win for " + self._currently_winning_player_name()
 
-        elif (self.p1points >= POINTS_VALUE_FORTY and self.p2points >= POINTS_VALUE_FORTY) and abs(self.p2points - self.p1points) == 1:
+        elif (self.player1_points >= POINTS_VALUE_FORTY and self.player2_points >= POINTS_VALUE_FORTY) and abs(self.player2_points - self.player1_points) == 1:
             result = "Advantage " + self._currently_winning_player_name()
 
         else:
-            if self.p1points == self.p2points:
-                if self.p1points < POINTS_VALUE_FORTY:
-                    result = _get_points_category(self.p1points)
+            if self.player1_points == self.player2_points:
+                if self.player1_points < POINTS_VALUE_FORTY:
+                    result = _get_points_category(self.player1_points)
                     result += "-All"
                 else:
                     result = "Deuce"
 
             else:
-                P2res = _get_points_category(self.p2points)
-                P1res = _get_points_category(self.p1points)
-                result = P1res + "-" + P2res
+                player1_score = _get_points_category(self.player1_points)
+                player2_score = _get_points_category(self.player2_points)
+                result = player1_score + "-" + player2_score
 
         return result
 
     def _currently_winning_player_name(self):
-        return self.player1Name if self.p1points > self.p2points else self.player2Name
+        return self.player1_name if self.player1_points > self.player2_points else self.player2_name
 
 
 class TennisGame3:
