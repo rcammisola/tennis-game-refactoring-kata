@@ -103,23 +103,26 @@ class TennisGame2:
     def score(self):
         if self._either_player_has_more_than(POINTS_VALUE_FORTY) and self._lead_at_least_two_points():
             result = "Win for " + self._currently_winning_player_name()
+        else:
+            result = self._in_progress_game_score()
+
+        return result
+
+    def _in_progress_game_score(self):
+        if self._tied_game():
+            if self.player1_points < POINTS_VALUE_FORTY:
+                result = _get_points_category(self.player1_points)
+                result += "-All"
+            else:
+                result = "Deuce"
 
         elif self._both_players_have_at_least(POINTS_VALUE_FORTY) and self._lead_by_one_point():
             result = "Advantage " + self._currently_winning_player_name()
 
         else:
-            if self._tied_game():
-                if self.player1_points < POINTS_VALUE_FORTY:
-                    result = _get_points_category(self.player1_points)
-                    result += "-All"
-                else:
-                    result = "Deuce"
-
-            else:
-                player1_score = _get_points_category(self.player1_points)
-                player2_score = _get_points_category(self.player2_points)
-                result = player1_score + "-" + player2_score
-
+            player1_score = _get_points_category(self.player1_points)
+            player2_score = _get_points_category(self.player2_points)
+            result = player1_score + "-" + player2_score
         return result
 
     def _currently_winning_player_name(self):

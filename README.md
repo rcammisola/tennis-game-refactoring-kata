@@ -147,10 +147,18 @@ if (self.p2points > self.p1points and self.p2points < 4):
     1. naming cases
     1. variable name length (e.g. p1points)
 
-#### TODO:
-
 1. Use methods to clarify if-clauses
     1. size of lead
+
+1. Push advantage clause down to separate won/complete game from ongoing game
+    1. Flow is now something like:
+        1. Has the game ended?
+        1. In-progress
+            1. game tied?
+            1. in an Advantage scenario?
+            1. standard score
+
+#### TODO:
 
 1. Setup pycharm testing
 
