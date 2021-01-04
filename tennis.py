@@ -172,15 +172,15 @@ class TennisGame3:
         score = self.point_descriptions[self.player1_points]
         return score + "-" + self.point_descriptions[self.player2_points]
 
-    def _deuce_has_been_reached(self):
-        return self.player1_points >= 3 and self.player2_points >= 3
-
     def _tied_game_score(self):
-        if self.player1_points < 3:
+        if self._deuce_has_been_reached():
+            return "Deuce"
+        else:
             score = self.point_descriptions[self.player1_points]
             return score + "-All"
-        else:
-            return "Deuce"
+
+    def _deuce_has_been_reached(self):
+        return self.player1_points >= 3 and self.player2_points >= 3
 
     def _player_lead(self):
         return abs(self.player1_points - self.player2_points)
