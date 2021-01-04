@@ -170,10 +170,13 @@ class TennisGame3:
             if self.player1_points == self.player2_points:
                 return "Deuce"
 
-            if abs(self.player1_points - self.player2_points) == 1:
+            if self._player_lead() == 1:
                 return "Advantage " + self._currently_winning()
             else:
                 return "Win for " + self._currently_winning()
+
+    def _player_lead(self):
+        return abs(self.player1_points - self.player2_points)
 
     def _currently_winning(self):
         return (
