@@ -160,7 +160,7 @@ class TennisGame3:
             self.player2_points += 1
 
     def score(self):
-        if (self.player1_points > 3 or self.player2_points > 3) and self._player_lead() >= 2:
+        if self._player_has_points_for_win() and self._player_lead() >= 2:
             return "Win for " + self._currently_winning()
 
         elif self._deuce_has_been_reached() and self._player_lead() == 1:
@@ -169,8 +169,13 @@ class TennisGame3:
         elif self.player1_points == self.player2_points:
             return self._tied_game_score()
 
-        score = self.point_descriptions[self.player1_points]
-        return score + "-" + self.point_descriptions[self.player2_points]
+        else:
+            player1_score = self.point_descriptions[self.player1_points]
+            player2_score = self.point_descriptions[self.player2_points]
+            return player1_score + "-" + player2_score
+
+    def _player_has_points_for_win(self):
+        return self.player1_points > 3 or self.player2_points > 3
 
     def _tied_game_score(self):
         if self._deuce_has_been_reached():
