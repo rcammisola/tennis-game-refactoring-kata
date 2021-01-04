@@ -145,6 +145,8 @@ class TennisGame2:
 
 
 class TennisGame3:
+    point_descriptions = ["Love", "Fifteen", "Thirty", "Forty"]
+
     def __init__(self, player1_name, player2_name):
         self.player1_name = player1_name
         self.player2_name = player2_name
@@ -159,12 +161,11 @@ class TennisGame3:
 
     def score(self):
         if (self.player1_points < 4 and self.player2_points < 4) and (self.player1_points + self.player2_points < 6):
-            point_descriptions = ["Love", "Fifteen", "Thirty", "Forty"]
-            score = point_descriptions[self.player1_points]
+            score = self.point_descriptions[self.player1_points]
             if self.player1_points == self.player2_points:
                 return score + "-All"
             else:
-                return score + "-" + point_descriptions[self.player2_points]
+                return score + "-" + self.point_descriptions[self.player2_points]
         else:
             if self.player1_points == self.player2_points:
                 return "Deuce"

@@ -179,3 +179,14 @@ if (self.p2points > self.p1points and self.p2points < 4):
 * Renamed class attributes (player name and points)
 * Renamed single character variable names
 * Reformatted to remove clutter
+
+### Understanding the logic in the score method
+
+* Trying to unpick the if else clauses to get a better lay of the land
+    * Game won condition buried deep in the else clause
+    * Separation of concern violation with the highest level if
+    * Deep nesting of if-else
+* Extract any obvious methods (currently winning player)
+
+* Shotgun changes
+    * Tied game and Duece code in different places
