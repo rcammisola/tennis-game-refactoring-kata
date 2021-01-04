@@ -190,3 +190,5 @@ if (self.p2points > self.p1points and self.p2points < 4):
 
 * Shotgun changes
     * Tied game and Duece code in different places
+
+* Single return to reduce cyclomatic complexity

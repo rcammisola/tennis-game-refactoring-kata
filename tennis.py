@@ -161,18 +161,20 @@ class TennisGame3:
 
     def score(self):
         if self._player_has_points_for_win() and self._player_lead() >= 2:
-            return "Win for " + self._currently_winning()
+            result = "Win for " + self._currently_winning()
 
         elif self._deuce_has_been_reached() and self._player_lead() == 1:
-            return "Advantage " + self._currently_winning()
+            result = "Advantage " + self._currently_winning()
 
         elif self.player1_points == self.player2_points:
-            return self._tied_game_score()
+            result = self._tied_game_score()
 
         else:
             player1_score = self.point_descriptions[self.player1_points]
             player2_score = self.point_descriptions[self.player2_points]
-            return player1_score + "-" + player2_score
+            result = player1_score + "-" + player2_score
+
+        return result
 
     def _player_has_points_for_win(self):
         return self.player1_points > 3 or self.player2_points > 3
