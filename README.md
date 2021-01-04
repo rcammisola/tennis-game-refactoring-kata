@@ -170,5 +170,12 @@ if (self.p2points > self.p1points and self.p2points < 4):
     * Think this is useful to consider where possible in order to avoid having the wrong abstraction - within reason
     * Link to Sandi Metz talk?
 
+## Game 3
 
+* This looks like the "cleverest" solution and is hard to unpick to begin with
 
+### Low-hanging fruit
+
+* Renamed class attributes (player name and points)
+* Renamed single character variable names
+* Reformatted to remove clutter
