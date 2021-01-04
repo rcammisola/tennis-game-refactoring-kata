@@ -169,7 +169,7 @@ class TennisGame3:
             if self.player1_points == self.player2_points:
                 return "Deuce"
             score = self.player1_name if self.player1_points > self.player2_points else self.player2_name
-            if (self.player1_points - self.player2_points) * (self.player1_points - self.player2_points) == 1:
+            if abs(self.player1_points - self.player2_points) == 1:
                 return "Advantage " + score
             else:
                 return "Win for " + score
