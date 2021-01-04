@@ -65,8 +65,8 @@ class TennisGame1:
 
     def _is_game_over(self):
         return (
-            (self.player1_points > POINTS_VALUE_FORTY or self.player2_points > POINTS_VALUE_FORTY) and
-            self._more_than_one_point_ahead()
+                (self.player1_points > POINTS_VALUE_FORTY or self.player2_points > POINTS_VALUE_FORTY) and
+                self._more_than_one_point_ahead()
         )
 
     def _more_than_one_point_ahead(self):
@@ -161,9 +161,13 @@ class TennisGame3:
         if (self.player1_points < 4 and self.player2_points < 4) and (self.player1_points + self.player2_points < 6):
             point_descriptions = ["Love", "Fifteen", "Thirty", "Forty"]
             score = point_descriptions[self.player1_points]
-            return score + "-All" if (self.player1_points == self.player2_points) else score + "-" + point_descriptions[self.player2_points]
+            if self.player1_points == self.player2_points:
+                return score + "-All"
+            else:
+                return score + "-" + point_descriptions[self.player2_points]
         else:
-            if (self.player1_points == self.player2_points):
+            if self.player1_points == self.player2_points:
                 return "Deuce"
             score = self.player1_name if self.player1_points > self.player2_points else self.player2_name
-            return "Advantage " + score if ((self.player1_points - self.player2_points) * (self.player1_points - self.player2_points) == 1) else "Win for " + score
+            return "Advantage " + score if ((self.player1_points - self.player2_points) * (
+                        self.player1_points - self.player2_points) == 1) else "Win for " + score
