@@ -160,6 +160,9 @@ class TennisGame3:
             self.player2_points += 1
 
     def score(self):
+        if (self.player1_points > 3 or self.player2_points > 3) and self._player_lead() >= 2:
+            return "Win for " + self._currently_winning()
+
         if (self.player1_points < 4 and self.player2_points < 4) and (self.player1_points + self.player2_points < 6):
             score = self.point_descriptions[self.player1_points]
             if self.player1_points == self.player2_points:
@@ -172,8 +175,6 @@ class TennisGame3:
 
             if self._player_lead() == 1:
                 return "Advantage " + self._currently_winning()
-            else:
-                return "Win for " + self._currently_winning()
 
     def _player_lead(self):
         return abs(self.player1_points - self.player2_points)
